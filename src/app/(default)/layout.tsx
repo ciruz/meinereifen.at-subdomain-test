@@ -21,7 +21,6 @@ export default async function RootLayout({
           ) : (
             <DefaultNavigation />
           )}
-          subdomain in layout: {subdomain}
           {children}
         </div>
       </body>
