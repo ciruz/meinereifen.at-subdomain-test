@@ -15,14 +15,8 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="container mx-auto">
-          {subdomain === "wl-lc" ? (
-            <LuckycarNavigation />
-          ) : (
-            <DefaultNavigation />
-          )}
-          {children}
-        </div>
+        {subdomain === "wl-lc" ? <LuckycarNavigation /> : <DefaultNavigation />}
+        <div className="container mx-auto">{children}</div>
       </body>
     </html>
   );
