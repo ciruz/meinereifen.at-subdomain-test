@@ -10,7 +10,7 @@ export default function LuckycarNavigation() {
           <Image src="/images/lc.webp" alt="Logo" width={182} height={60} />
         </Link>
       </div>
-      <ul className="flex flex-row gap-4 p-4">
+      <ul className="flex flex-row gap-4 ml-4 p-4">
         <li className="hover:underline cursor-pointer">
           <Link href="/">Startseite</Link>
         </li>
