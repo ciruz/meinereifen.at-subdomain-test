@@ -4,5 +4,5 @@ export default async function Page() {
   const cookieStore = await cookies();
   const subdomain = cookieStore.get("x-subdomain")?.value || "default";
 
-  return <div>subdomain: {subdomain}</div>;
+  return <div>subdomain in page: {subdomain}</div>;
 }
