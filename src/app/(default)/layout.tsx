@@ -1,6 +1,7 @@
 // app/layout.tsx
 
-import Navigation from "@/components/layout/header/default/Navigation";
+import DefaultNavigation from "@/components/layout/header/default/DefaultNavigation";
+import LuckycarNavigation from "@/components/layout/header/luckycar/LuckycarNavigation";
 import { headers } from "next/headers";
 
 export default async function RootLayout({
@@ -15,7 +16,11 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         <div className="container mx-auto">
-          <Navigation />
+          {subdomain === "wl-lc" ? (
+            <LuckycarNavigation />
+          ) : (
+            <DefaultNavigation />
+          )}
           subdomain in layout: {subdomain}
           {children}
         </div>

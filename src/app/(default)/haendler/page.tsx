@@ -7,7 +7,7 @@ export default async function Page() {
   const dealers = await fetchDealers();
 
   return (
-    <div>
+    <div className="p-8">
       <h1 className="mb-8 font-bold text-2xl">
         {dealers.pagination.total} Händler gefunden
       </h1>
