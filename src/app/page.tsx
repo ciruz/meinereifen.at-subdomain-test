@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div>test</div>;
+  return <div>app home page</div>;
 }
