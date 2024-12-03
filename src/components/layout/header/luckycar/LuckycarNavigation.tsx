@@ -17,6 +17,11 @@ export default function LuckycarNavigation() {
         <li className="hover:underline cursor-pointer">
           <Link href="/haendler">Händler</Link>
         </li>
+        <li className="hover:underline cursor-pointer">
+          <a href="https://www.lucky-car.at/standorte/?lctid=sk-mm">
+            Standorte
+          </a>
+        </li>
       </ul>
     </div>
   );
