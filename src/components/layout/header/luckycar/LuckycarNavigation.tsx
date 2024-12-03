@@ -7,7 +7,7 @@ export default function LuckycarNavigation() {
     <div className="bg-yellow-300 w-full p-8 flex flex-row justify-between">
       <div>
         <Link href="/" className="cursor-pointer">
-          <Image src="/images/lc.web" alt="Logo" width={182} height={60} />
+          <Image src="/images/lc.webp" alt="Logo" width={182} height={60} />
         </Link>
       </div>
       <ul className="flex flex-row gap-4">
