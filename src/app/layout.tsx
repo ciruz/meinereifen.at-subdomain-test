@@ -1,21 +1,12 @@
-// app/layout.tsx
+import "@/globals.css";
 
-import { headers } from "next/headers";
+import QueryProvider from "@/provider/QueryProvider";
+import React from "react";
 
-export default async function RootLayout({
+export default function MasterLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const headersList = await headers();
-  const subdomain = headersList.get("x-subdomain") || "default";
-
-  return (
-    <html lang="en">
-      <body>
-        subdomain in layout: {subdomain}
-        {children}
-      </body>
-    </html>
-  );
+  return <QueryProvider>{children}</QueryProvider>;
 }
