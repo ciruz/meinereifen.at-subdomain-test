@@ -1,31 +1,20 @@
-import { NextRequest, NextResponse } from "next/server";
+// middleware.ts
+import { NextResponse } from "next/server";
 
-export const config = {
-  matcher: [
-    /*
-     * Match all paths except for:
-     * 1. /api routes
-     * 2. /_next (Next.js internals)
-     * 3. /_static (inside /public)
-     * 4. all root files inside /public (e.g. /favicon.ico)
-     */
-    "/((?!api/|_next/|_static/|_vercel|[\\w-]+\\.\\w+).*)",
-  ],
-};
-export default async function middleware(req: NextRequest) {
-  const url = req.nextUrl;
+export function middleware(req: Request) {
+  const url = new URL(req.url);
+  const host = url.hostname; // Get the host (e.g., "subdomain.example.com")
 
-  // Get hostname of request (e.g. demo.vercel.pub, demo.localhost:3000)
-  const hostname = req.headers
-    .get("host")!
-    .replace(".localhost:3000", `.${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`);
+  const subdomain = host.split(".")[0]; // Extract the subdomain
 
-  const searchParams = req.nextUrl.searchParams.toString();
+  // Optionally, you can set a default subdomain or handle edge cases
+  // const allowedSubdomains = ["sub1", "sub2"]; // List your allowed subdomains
+  // if (!allowedSubdomains.includes(subdomain)) {
+  //return NextResponse.rewrite(new URL("/404", req.url)); // Redirect to a 404 page or fallback
+  //}
 
-  // Get the pathname of the request (e.g. /, /about, /blog/first-post)
-  const path = `${url.pathname}${
-    searchParams.length > 0 ? `?${searchParams}` : ""
-  }`;
-
-  return NextResponse.rewrite(new URL(`/${hostname}${path}`, req.url));
+  // Pass the subdomain as a header
+  const response = NextResponse.next();
+  response.headers.set("x-subdomain", subdomain);
+  return response;
 }
