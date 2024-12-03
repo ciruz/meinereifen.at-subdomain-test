@@ -15,6 +15,12 @@ export default async function RootLayout({
       <body>
         subdomain in layout: {subdomain}
         {children}
+        {cookieStore.getAll().map((cookie) => (
+          <div key={cookie.name}>
+            <p>Name: {cookie.name}</p>
+            <p>Value: {cookie.value}</p>
+          </div>
+        ))}
       </body>
     </html>
   );
