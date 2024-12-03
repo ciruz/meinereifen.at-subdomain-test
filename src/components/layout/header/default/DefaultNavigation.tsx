@@ -15,7 +15,7 @@ export default function DefaultNavigation() {
           />
         </Link>
       </div>
-      <ul className="flex flex-row gap-4">
+      <ul className="flex flex-row gap-4 p-4">
         <li className="hover:underline cursor-pointer">
           <Link href="/">Startseite</Link>
         </li>
